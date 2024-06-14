@@ -1,0 +1,29 @@
+<section th:fragment = "formCupom">
+    <div class="form-floating m-3">
+        <input type="text" th:field="*{codigo}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">Código do Cupom:</label>
+    </div>
+    <div class="form-floating m-3 col-4">
+        <input type="text" th:field="*{desconto}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">Desconto a ser concedido:</label>
+    </div>
+    <div class="form-floating m-3 col-4">
+        <select class="form-select" th:field="*{statusCupom}">
+            <option th:each="statusCupom : ${statusCupom}"
+                    th:value="${statusCupom}" th:text="${statusCupom}">
+            </option>
+        </select>
+        <label for="floatingInputInvalid">Status do Cupom:</label>
+    </div>
+    <div class="form-floating m-3 col-4">
+        <select class="form-select" th:field="*{finalidade}">
+            <option th:each="finalidade : ${finalidadeCupom}"
+                    th:value="${finalidade}" th:text="${finalidade}">
+            </option>
+        </select>
+        <label for="floatingInputInvalid">Status do Cupom:</label>
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="SALVAR">
+    <a href="/cupons"><button type="button" class="btn btn-secondary mt-me-md-4">VOLTAR</button></a>
+</section>

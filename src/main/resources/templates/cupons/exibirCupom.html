@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+
+<head th:replace="~{fragmentosAdm :: headAdm('Novo Cupom Criado')}"></head>
+
+<body>
+    <header th:replace="~{fragmentosAdm :: headerAdm}"></header>
+    
+    <div class="content m-3">
+      <h3 class="m-3"><span class="badge bg-primary">Detalhes do Cupom Criado</span></h3>
+
+      <h4 class="m-3"><span>Código do Cupom: </span><span th:text="${cupom.codigo}">  Código </span></h4>
+
+      <h6 class="m-3"><span>Desconto a ser concedido: </span><span th:text="${cupom.desconto}">  Valor do Desconto </span></h6>
+
+      <h6 class="m-3"><span>Status do Cupom: </span><span th:text="${cupom.statusCupom}">  Status Ativo ou Inativo</span></h6>
+
+      <h6 class="m-3"><span>Status do Cupom: </span><span th:text="${cupom.finalidade}">  Status Ativo ou Inativo</span></h6>
+
+      <div class="content">
+        <a th:href="@{/cupons/{cupomId}/editar(cupomId = ${cupom.id})}"><button type="button" class="btn btn-warning m-3">EDITAR</button></a>
+        <a href="/cupons"><button type="button" class="btn btn-primary m-3">LISTA DE CUPONS</button></a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

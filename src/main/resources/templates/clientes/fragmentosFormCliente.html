@@ -1,0 +1,29 @@
+<section th:fragment="formCliente">
+    
+        <h1><span class="badge bg-info text-dark">Cadastro do Novo Cliente</span></h1>
+        
+            <h1>Informações Pessoais do Cliente</h1>
+            
+            <div class="form-floating mb-3">
+                <input type="text" th:field="*{nome}" class="form-control" th:classname="is-invalid" aria-describedby="validationNome" required>
+                <label for="floatingInputInvalid">Nome Completo:</label>
+                <span id="validationNome" class="invalid-feedback"></span>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input class="form-control" th:classname="is-invalid" type="text" maxlength="14" onkeyup="handleCPF(event)" th:field="*{cpf}" aria-describedby="validationCpf" required>
+                <label for="floatingInputInvalid">CPF:</label>
+                <span id="validationCpf" class="invalid-feedback"></span>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" th:field="*{email}" th:classname="is-invalid" aria-describedby="validationEmail" required>
+                <label for="floatingInputInvalid">Email:</label>
+                <span id="validationEmail" class="invalid-feedback"></span>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input class="form-control" type="tel" maxlength="15" onkeyup="handlePhone(event)" th:field="*{telefone}"><br>
+                <label for="floatingInputInvalid">Telefone</label><br>
+            </div>
+</section>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+
+<head th:replace="~{fragmentosAdm :: headAdm('Detalhes do Jogo Cadastrado')}"></head>
+
+<body>
+    <header th:replace="~{fragmentosAdm :: headerAdm}"></header>
+    
+    <div class="content m-3">
+      <h1 class="m-3"><span class="badge bg-primary">Detalhes do Jogo Cadastrado</span></h1>
+
+      <h4 class="m-3"><span class="badge bg-secondary m-2">Nome do Jogo: </span><span th:text="${jogo.nome}">  nome</span></h4>
+
+      <div class="contente m-3">
+        <div id="carouselExampleIndicators" class="carousel slide col-3">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img th:src="@{${jogo.urlFotoPrincipal}}" class="d-block h-75" alt="capa da caixa do jogo">
+              
+            </div>
+            <div class="carousel-item">
+              <img th:src="@{${jogo.urlFoto1}}" class="d-block w-100" alt="componentes do jogo">
+            </div>
+            <div class="carousel-item">
+              <img th:src="@{${jogo.urlFoto2}}" class="d-block w-100" alt="componentes do jogo">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <h6 class="m-3"><span class="badge bg-secondary m-2">Categoria do Jogo: </span><span th:text="${jogo.categoria}">  Categoria do jogo </span></h6>
+
+      <h6 class="m-3"><span class="badge bg-secondary m-2">Descrição do Jogo: </span><span th:text="${jogo.descricao}">  Descrição</span></h6>
+
+      <h6 class="m-3"><span class="badge bg-secondary m-2">Preço do Jogo: </span><span th:text="${jogo.preco}">  Preço</span></h6>
+
+      <div class="content">
+        <a th:href="@{/jogos/{jogoId}/editar(jogoId = ${jogo.id})}"><button type="button" class="btn btn-warning m-3">EDITAR</button></a>
+        <a href="/jogos"><button type="button" class="btn btn-primary m-3">LISTA DE JOGOS</button></a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

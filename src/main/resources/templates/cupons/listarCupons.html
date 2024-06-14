@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+
+<head th:replace="~{fragmentosAdm :: headAdm('Lista de Cupons')}"></head>
+
+<body>
+    <header th:replace="~{fragmentosAdm :: headerAdm}"></header>
+
+    <main class="container mt-4">
+        <div class="row">
+            <h1 ><span class="badge bg-info">Lista de Cupons</span></h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Desconto</th>
+                        <th scope="col">Status do Cupom</th>
+                        <th scope="col">Finalidade do Cupom</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cupom : ${cupons}">
+                        <td class="col-1" scope="row" th:text="${cupom.id}">ID</td>
+                        <td class="col-1" th:text="${cupom.codigo}">Código do Cupom</td>
+                        <td class="col-1" th:text="${cupom.desconto}">Valor do Desconto</td>
+                        <td class="col-1" th:text="${cupom.statusCupom}">Status do Cupom</td>
+                        <td class="col-1" th:text="${cupom.finalidade}">Finalidade do Cupom</td>
+                        <td class="col-1"><a th:href="@{/cupons/{cupomID} (cupomID = ${cupom.id})}"><span class="badge bg-success">DETALHES</span></a></td>
+                        <td class="col-1"><a th:href="@{/cupons/{cupomId}/editar(cupomId = ${cupom.id})}"><span class="badge bg-warning text-dark">EDITAR</span></a></td>
+                        <td class="col-1"><a th:href="@{/cupons/{cupomID}/excluir (cupomID = ${cupom.id})}"><span class="badge bg-danger">EXCLUIR</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/cupons/novo"><button class="btn btn-warning">CRIAR <br><strong>NOVO CUPOM</strong></button></a>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

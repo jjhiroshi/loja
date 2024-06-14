@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+
+<head th:replace="~{fragmentosAdm :: headAdm('Lista de Jogos da Loja')}"></head>
+
+<body>
+    <header th:replace="~{fragmentosAdm :: headerAdm}"></header>
+
+    <main class="container mt-4">
+        <div class="row">
+            <h1 ><span class="badge bg-success">Lista de Jogos</span></h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="jogo : ${jogos}">
+                        <td class="col-1" scope="row" th:text="${jogo.id}">ID</td>
+                        <td class="col-1" th:text="${jogo.nome}">Nome do Jogo</td>
+                        <td class="col-1" th:text="${jogo.categoria}">Categoria do Jogo</td>
+                        <td class="col-1" th:text="${jogo.preco}">Preço do Jogo</td>
+                        <td class="col-1"><a th:href="@{/jogos/{jogoID} (jogoID = ${jogo.id})}"><span class="badge bg-success">DETALHES</span></a></td>
+                        <td class="col-1"><a th:href="@{/jogos/{jogoId}/editar(jogoId = ${jogo.id})}"><span class="badge bg-warning text-dark">EDITAR</span></a></td>
+                        <td class="col-1"><a th:href="@{/jogos/{jogoID}/excluir (jogoID = ${jogo.id})}"><span class="badge bg-danger">EXCLUIR</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="/jogos/novo"><button class="btn btn-warning">CADASTRAR <br><strong>NOVO JOGO</strong></button></a>
+        </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

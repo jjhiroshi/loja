@@ -1,0 +1,76 @@
+<section th:fragment="formEndereco">
+    
+    <h1 class="h1">Endereço para as Entregas</h1>
+    
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" th:field="*{logradouro}"aria-describedby="validationLogradouro" required>
+        <label for="floatingInputInvalid">Logradouro:</label>
+        <span id="validationLogradouro" class="invalid-feedback"></span>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="form-floating col-md-2">
+            <input class="form-control" type="text" th:field="*{numero}"aria-describedby="validationNumero" required>
+            <label for="floatingInputInvalid">Número:</label>
+            <span id="validationNumero" class="invalid-feedback"></span>
+        </div>
+        <div class="form-floating col-md-8">
+            <input class="form-control" type="text" th:field="*{complemento}">
+            <label for="floatingInputInvalid">Complemento:</label>
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" th:field="*{bairro}"aria-describedby="validationBairro" required>
+        <label for="floatingInputInvalid">Bairro:</label>
+        <span id="validationBairro" class="invalid-feedback"></span>
+    </div>
+
+    <div class="row mb-3">
+        <div class="form-floating col-md-8">
+            <input class="form-control" type="text" th:field="*{cidade}" aria-describedby="validationCidade" required>
+            <label for="floatingInputInvalid">Cidade:</label>
+            <span id="validationCidade" class="invalid-feedback"></span>
+        </div>
+
+        <div class="form-floating col-md-1">
+            <select class="form-select" th:field="*{uf}">
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MG">MG</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="RO">RO</option>
+            </select>
+            <label for="floatingInputInvalid">Estado:</label>
+        </div>
+    </div>
+    
+    <div class="form-floating col-md-3">
+        <input class="form-control" type="text" th:field="*{cep}" onkeyup="handleCep(event)" aria-describedby="validationCep" required><br>
+        <label for="floatingInputInvalid">CEP:</label><br>
+        <span id="validationCep" class="invalid-feedback"></span>
+    </div>
+    
+</section>

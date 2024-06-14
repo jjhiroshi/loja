@@ -1,0 +1,44 @@
+<section th:fragment="formJogo">
+    <h1><span class="badge bg-warning">Cadastro do Jogo</span></h1>
+
+    <div class="form-floating m-3">
+        <input type="text" th:field="*{nome}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">Nome do Jogo:</label>
+    </div>
+
+    <div class="form-floating m-3 col-md-3">
+        <select class="form-select" th:field="*{categoria}">
+            <option th:each="categoria : ${categoria}"
+                    th:value="${categoria}" th:text="${categoria}"></option>
+        </select>
+        <label for="floatingInputInvalid" >Categoria em que o jogo pertence</label>
+    </div>
+
+    <div class="form-floating m-3">
+        <textarea th:field="*{descricao}" class="form-control" id="floatingTextarea2" style="height: 500px;"></textarea>
+        <label for="floatingTextarea2">Descrição do Jogo:</label>
+    </div>
+
+    <div class="form-floating m-3 col-3">
+        <input type="text" th:field="*{preco}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">Preço do Jogo:</label>
+    </div>
+
+    <div class="form-floating m-3">
+        <input type="text" th:field="*{urlFotoPrincipal}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">URL da Foto da Caixa do Jogo:</label>
+    </div>
+
+    <div class="form-floating m-3">
+        <input type="text" th:field="*{urlFoto1}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">URL de outras fotos do jogo:</label>
+    </div>
+
+    <div class="form-floating m-3">
+        <input type="text" th:field="*{urlFoto2}" class="form-control" id="floatingInputInvalid">
+        <label for="floatingInputInvalid">URL de outras fotos do jogo:</label>
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="SALVAR">
+    <a href="/jogos"><button type="button" class="btn btn-secondary mt-me-md-4">VOLTAR</button></a>
+</section>
